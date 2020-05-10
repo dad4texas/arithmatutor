@@ -1,0 +1,68 @@
+<div class="title" id="problem_title">
+  <h1><%=@problem.name%></h1>
+</div>
+
+<div>
+  <center><%=button_to "Help this Student",help_problem_path(@problem.id) if guest_user(@user)%></center>
+</div>
+
+<div>
+  <center>
+    <%if correct_user(@user) %>
+      <%= edit_problem(@user, @problem)%> - <%= delete_problem(@user, @problem) %>
+    <% end %>
+  </center>
+</div>
+
+      <h4 class="text-danger">Problem Name:</h4><%=@problem.name%>
+        </br>
+        </br>
+      <h4 class="text-danger">Student's Name:</h4> <%=@problem.user.username%>
+        </br>
+        </br>
+      <h4 class="text-danger">Student's School:</h4><%=@problem.state%>
+        <br>
+        </br>
+
+<div class="problem-description">
+  <h3>Description:</h3>
+  <p class="text-info"><%=@problem.description%></p>
+</div>
+<br>
+
+<div class="categories">
+  <h4>Relevant Categories:</h4>
+    <ul class="category-list">
+        <% @problem.categories.each do |category| %>
+          <li class="category-item"> <%=link_to category.name, category_path(category)%> </li>
+        <% end %>
+    </ul>
+</div>
+
+<br>
+
+<div>
+  <%if helped_user(current_user, @problem) %>
+    <p> Contact this user to collaborate: <%=@user.email%></p>
+  <% end %>
+</div>
+
+<div class="js-next" data-uid="<%=@user.id%>" data-id="<%=@problem.id%>">
+<br>
+  <button class="btn btn-primary">Next Problem</button>
+</div>
+<br>
+<div class="form-group">
+  <%=form_for(ProblemComment.new, url: user_comment_problem_path(@user, @problem)) do |f|%>
+    <%=f.hidden_field :user_id, value: current_user.id if current_user%>
+    <%=f.hidden_field :problem_id, value: @problem.id, id: 'hidden-problemId' %>
+    <%= f.text_area :comment, class: "form-control"%> <br>
+    <%= f.submit "Submit Comment", id: 'comment-button' %>
+  <% end %>
+</div>
+
+<a href=# class="show-comments">Show Comments</a>
+<div class="comments">
+  <ol class="comment-list">
+  </ol>
+</div>

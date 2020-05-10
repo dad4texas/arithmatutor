@@ -1,0 +1,9 @@
+<h1>All problems under <%=@category.name%></h1>
+
+<ul>
+<%@category.problems.each do |problem|%>
+  <li><%=link_to problem.name, user_problem_path(problem.user, problem)%></li>
+<% end %>
+</ul>
+
+<%= link_to "Categories Index", categories_path %>

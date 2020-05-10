@@ -1,0 +1,39 @@
+<h2> <%= @user.username %>'s Maths Problems</h2>
+
+<% if @user.problems.empty? %>
+  You currently have no problems, please click <%= link_to "here", new_user_problem_path(@user)%> to add one!
+<% else %>
+  <table class="table table-hover">
+    <tr class="table-active">
+      <th>Math Problem Name</th>
+      <th>Active?</th>
+      <th>More</th>
+    </tr>
+<% @user.problems.each do |problem| %>
+    <tr>
+      <td><%= link_to problem.name, user_problem_path(@user, problem) %></td></button></td>
+
+      <td><%= problem.active%></td>
+
+<td><%= link_to "Details...", user_problem_path(@user, problem), class: "btn btn-info" %></td>
+      <!---->
+<!--<td><button class="js-more" data-uid="<%=@user.id%>" data-id="<%= problem.id %>">Details..</button></td>-->
+
+    </tr>
+    <% end %>
+  </table>
+
+<% end %>
+<div id='problem-display'>
+</div>
+
+<% if correct_user(@user) %>
+  <p><%= link_to "Add new problem", new_user_problem_path(@user)%></p>
+  <br>
+  <b> Your are helping with these problems: </b>
+  <ul>
+    <%@user.problems_helped.each do |problem|%>
+      <li><%=link_to problem.name, user_problem_path(problem.user, problem)%></li>
+    <% end %>
+  </ul>
+<% end %>

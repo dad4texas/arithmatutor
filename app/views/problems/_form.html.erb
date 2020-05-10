@@ -1,0 +1,62 @@
+
+<%= form_for [@user, @problem] do |f| %>
+<% if @problem.errors.any? %>
+  <div id="error_explanation">
+    <h4><%= pluralize(@problem.errors.count, "error") %> prohibited this problem from being saved:</h4>
+
+    <ul>
+    <% @problem.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+  <%= f.hidden_field :user_id %>
+
+<!--The beginning of the form field -->
+  <div class="jumbotron">
+      <div>
+        <%= f.label :problem_name %>
+        <%= f.text_field :name, placeholder: "problem name" %>
+      </div>
+
+      <div>
+        <%= f.label :Student_Name %>
+        <%= f.text_field :city %>
+      </div>
+
+      <div>
+        <%= f.label :School %>
+        <%= f.select(:state, options_for_select(us_states)) %>
+      </div>
+
+      <div>
+        <%= f.label :active, "Activate the Math Problem" %>
+        <%= f.check_box :active %>
+      </div>
+
+      <p>Choose some Categories!</p>
+
+      <div>
+      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name%>
+      </div>
+
+      <div>
+      <%= f.fields_for :categories, @problem.categories.build do |categories_fields| %>
+        <%= categories_fields.label :name, "Create a new category" %>
+        <%= categories_fields.text_field :name %>
+      <% end %>
+      </div>
+
+      <div class="label">
+      <%= f.label :description, "Description" %>
+      <%= f.text_area :description,  class: "form-group" %>
+      </div>
+
+      <div class="actionButtons">
+        <%= f.submit %>
+      </div>
+  </div>
+
+<% end %>

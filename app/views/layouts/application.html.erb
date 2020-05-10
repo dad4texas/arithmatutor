@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ArithMaTutor</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'grid', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">-->
+  </head>
+
+  <body>
+
+    <%= render 'layouts/navbar' %>
+   
+<center><%= link_to image_tag("arithmatutor_logo.png") %></center>
+    <div class="jumbotron">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      
+      
+      <%= yield %>
+
+    </div>
+
+  </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ 
+     
+      <br>
+    <footer class="branding">
+      <small>&copy; 2020 <strong>ArithMaTutor</small>
+      
+    </footer>
+ 
+ 
+</html>

@@ -1,0 +1,14 @@
+<h1>All Math Problems!</h1>
+
+<table class="table table-hover">
+  <tr>
+    <th>Problem Name</th>
+    <th>Problem Creator</th>
+  </tr>
+  <% @problems.each do |problem| %>
+    <tr>
+      <th><%= link_to problem.name, user_problem_path(problem.user_id, problem) %></th>
+      <th><%= link_to problem.user.username, user_path(problem.user) %> </th>
+    </tr>
+  <% end %>
+</table>
