@@ -36,7 +36,7 @@ gem 'active_model_serializers', '~> 0.10.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'rspec'
 gem 'omniauth'
-gem 'omniauth-github'
+gem 'omniauth-facebook'
 gem 'dotenv-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
