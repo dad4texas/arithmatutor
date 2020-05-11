@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "welcome#about"
+  root "welcome#home"
 
 #users and users problem paths
   resources :users do
@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 
   resources :categories, only:[:index, :show]
 
-  get '/auth/github/callhelp' => 'sessions#create'
-
+  get '/auth/facebook/callback' => 'sessions#create'
+ 
   get "/login", to: 'sessions#new', as: 'login'
   post "/logging_in", to: 'sessions#create', as: 'logging_in'
   delete '/logout', to: 'sessions#destroy', as: 'logout'

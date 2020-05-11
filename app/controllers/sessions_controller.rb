@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if auth
+    if auth   # this determines that the user is who they say thay are.
       if @user = User.find_by(:email => auth["info"]["email"])
         session[:user_id] = @user.id
         redirect_to @user
