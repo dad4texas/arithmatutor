@@ -1,5 +1,5 @@
 class Category < ApplicationRecord
-  has_many :project_categories
-  has_many :projects, through: :project_categories
+  has_many :problem_categories
+  has_many :problems, through: :problem_categories
 
 end
