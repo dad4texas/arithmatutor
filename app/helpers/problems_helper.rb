@@ -1,6 +1,6 @@
 module ProblemsHelper
 
-  def us_states
+  def schools
     [
       ['Bryson Elementary'],
       ['Chisholm Ridge Elementary'],

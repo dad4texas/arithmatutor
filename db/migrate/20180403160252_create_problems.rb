@@ -5,7 +5,7 @@ class CreateProblems < ActiveRecord::Migration[5.1]
       t.text :description
       t.string :category
       t.string :city
-      t.string :state
+      t.string :school
       t.integer :user_id
 
       t.timestamps
