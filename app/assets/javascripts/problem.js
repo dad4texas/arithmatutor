@@ -41,7 +41,7 @@ function nextProblemListener(){
     let next = problemId
 
     if(allProblems.length === 1){
-      alert("This user only has one problem")
+      alert("You only have one math problem silly")
     }else if(nextIndex === allProblems.length){
       next = allProblems[0]
     }else{
