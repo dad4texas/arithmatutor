@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180412143455) do
     t.text "description"
     t.string "category"
     t.string "city"
-    t.string "state"
+    t.string "school"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

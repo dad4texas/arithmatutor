@@ -53,7 +53,7 @@ function nextProblemListener(){
      $.get(nextURL).done(resp => {
        $('.title').html(`<h1><center>${resp.name}</center></h1>`)
        $('.details').html(`
-       <h4>Problem location: ${resp.city}, ${resp.state}</h4>
+       <h4>Problem location: ${resp.city}, ${resp.school}</h4>
        <h3>Description:</h3>
        <p>${resp.description}</p>`)
        $('.button_to').attr('action', `/help_problem/${resp.id}`)

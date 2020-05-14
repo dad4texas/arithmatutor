@@ -52,7 +52,7 @@ class ProblemsController < ApplicationController
   private
 
   def problem_params
-    params.require(:problem).permit(:name, :description, :city, :user_id, :active, :state, category_ids:[], categories_attributes:[:name])
+    params.require(:problem).permit(:name, :description, :city, :user_id, :active, :school, category_ids:[], categories_attributes:[:name])
   end
 
   def set_user_and_problem

@@ -10,36 +10,36 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
   </br>
     <ul class="navbar-nav mr-auto">
-</br>
+  </br>
       <li class="nav-item active">
-        <a class="nav-link" href="<%= user_path(current_user) %>"/>Home</a>&nbsp;
+        <a class="nav-link" href="<%= user_path(current_user) %>"/>Home</a>
     </li>
 
 <li class="nav-item active">
-    <a class="nav-link" href="/logout" data-method="delete"/>Signout</a>&nbsp;
+    <a class="nav-link" href="/logout" data-method="delete"/>Signout</a>
 </li>
   <% elsif !logged_in?%>
 
 <li class="nav-item active">
-    <a class="nav-link" href="<%= login_path %>"/>Login</a>&nbsp;
+    <a class="nav-link" href="<%= login_path %>"/>Login</a>
 </li>
 
 <li class="nav-item active">
-    <a class="nav-link" href="<%= new_user_path %>"/>Sign up</a>&nbsp;
+    <a class="nav-link" href="<%= new_user_path %>"/>Sign up</a>
 </li>
 
   <% end %>
 
 <li class="nav-item active">
-  <a class="nav-link" href="<%= active_problems_path %>"/>Math Help Needed</a>&nbsp;
+  <a class="nav-link" href="<%= active_problems_path %>"/>Math Help Needed</a>
 </li>
 
 <li class="nav-item active">
-  <a class="nav-link" href="<%= categories_path %>"/>Math Categories</a>&nbsp;
+  <a class="nav-link" href="<%= categories_path %>"/>Math Categories</a>
 </li>
 
 <li class="nav-item active">
-  <a class="nav-link" href="<%= root_path %>"/>About</a>&nbsp;
+  <a class="nav-link" href="<%= root_path %>"/>About</a>
 </li>
 
    </ul>
