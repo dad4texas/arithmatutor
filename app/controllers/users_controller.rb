@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def new
     if logged_in?
-      redirect_to user_path(current_user), flash:{notice: "already logged in!"}
+      redirect_to user_path(current_user), flash:{notice: "You are already logged in!"}
     end
     @user = User.new
   end
@@ -43,13 +43,13 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   rescue ActiveRecord::RecordNotFound
-    redirect_to active_problems_path, flash:{alert: "That user does not exist."}
+    redirect_to active_problems_path, flash:{alert: "The user does not exist."}
   end
 
   def access_user
     @user = User.find_by(id: params[:id])
     unless current_user == @user
-      redirect_to active_problems_path, flash:{alert: "You don't have access to that."}
+      redirect_to active_problems_path, flash:{alert: "Hey you don't have access to that."}
     end
   end
 
